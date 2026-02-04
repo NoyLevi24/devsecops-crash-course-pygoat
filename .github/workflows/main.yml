@@ -53,11 +53,11 @@ jobs:
      with:
        dockerhub-user: ${{ secrets.REPO_USER }}
        dockerhub-password: ${{ secrets.REPO_PWD }}
-       # שינוי כאן: אנחנו מריצים פקודת cves ספציפית שיוצרת את הקובץ
-       command: cves
+       command: quickview,cves
        image: myapp:latest
        sarif-file: scout-report.sarif
        only-severities: critical,high
+       exit-code: true
 
    - name: Upload Artifact
      uses: actions/upload-artifact@v6.0.0
